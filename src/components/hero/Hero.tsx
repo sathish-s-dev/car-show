@@ -21,7 +21,7 @@ const Hero = () => {
 					handleClick={handleClick}
 				/>
 			</div>
-			<div className='hero__image-container'>
+			<div className='hero__image-container overflow-hidden'>
 				<div className='hero__image'>
 					<Image
 						src='/hero.png'

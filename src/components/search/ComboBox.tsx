@@ -1,13 +1,18 @@
 'use client';
 
 import { Fragment, useState } from 'react';
+
 var { Combobox, Transition } = require('@headlessui/react');
+
 import { manufacturers } from '@/constants';
 import Image from 'next/image';
 
-export default function ComboBox() {
-	const [selected, setSelected] = useState('');
+interface ComboBoxProps {
+	selected: string;
+	setSelected: (selected: string) => void;
+}
 
+export default function ComboBox({ selected, setSelected }: ComboBoxProps) {
 	const [query, setQuery] = useState('');
 	console.log(selected);
 	const filteredPeople =
@@ -21,12 +26,12 @@ export default function ComboBox() {
 			  );
 
 	return (
-		<div className='search-manufacturer'>
+		<div className='w-full'>
 			<Combobox
 				value={selected}
 				onChange={setSelected}>
 				<div className='relative w-full mt-1'>
-					<div className='relative w-full cursor-default overflow-hidden rounded-lg text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm'>
+					<div className='relative w-full cursor-default overflow-hidden rounded-l-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm'>
 						<Combobox.Button className='absolute top-[14px]'>
 							<Image
 								src={'/car-logo.svg'}
@@ -37,9 +42,10 @@ export default function ComboBox() {
 							/>
 						</Combobox.Button>
 						<Combobox.Input
-							className='search-manufacturer__input'
+							className='search-manufacturer__input bg-inherit'
+							placeholder='Volkswagen'
 							displayValue={(car: string) => car}
-							onChange={(event) => setQuery(event.target.value)}
+							onChange={(event: any) => setQuery(event.target.value)}
 						/>
 					</div>
 					<Transition
@@ -57,13 +63,17 @@ export default function ComboBox() {
 								filteredPeople.map((car) => (
 									<Combobox.Option
 										key={car}
-										className={({ active }) =>
-											`relative cursor-default select-none py-2 pl-10 pr-4 ${
-												active ? 'bg-blue-600 text-white' : 'text-gray-900'
-											}`
+										className={({
+											active,
+										}: {
+											active: boolean;
+										}) => `relative cursor-default select-none py-2 pl-10 pr-4 ${
+											active ? 'bg-blue-600 text-white' : 'text-gray-900'
 										}
+
+              `}
 										value={car}>
-										{({ selected, active }) => (
+										{({ selected, active }: any) => (
 											<>
 												<span
 													className={`block truncate ${

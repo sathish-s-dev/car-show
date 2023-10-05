@@ -42,7 +42,7 @@ export const manufacturers = [
 	'Volvo',
 ];
 
-export const yearsOfProduction = [
+export const years = [
 	{ title: 'Year', value: '' },
 	{ title: '2015', value: '2015' },
 	{ title: '2016', value: '2016' },
@@ -59,6 +59,10 @@ export const fuels = [
 	{
 		title: 'Fuel',
 		value: '',
+	},
+	{
+		title: 'diesel',
+		value: 'diesel',
 	},
 	{
 		title: 'Gas',
@@ -99,8 +103,6 @@ export const footerLinks = [
 		],
 	},
 ];
-
-
 
 export const cars: Car[] = [
 	{

@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { calculateCarRent, getImageUrl } from '@/utils';
 import { Button, CarDetails } from '..';
 
-import { Transition, Dialog } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 
 export function CarCard({ car }: { car: Car }) {

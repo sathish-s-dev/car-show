@@ -27,3 +27,20 @@ interface CarDetailsProps {
 	closeModal: () => void;
 	isOpen: boolean;
 }
+
+interface SearchParamsProps {
+	manufacturer?: string;
+	model?: string;
+	year?: string;
+	fuel?: string;
+}
+
+interface HomeProps {
+	searchParams?: SearchParamsProps;
+}
+
+interface FilterListProps {
+	value: FilterItemval[];
+	title: string;
+	select: string | undefined;
+}
