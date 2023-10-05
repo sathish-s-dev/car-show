@@ -1,7 +1,7 @@
 'use client';
 
 import { Fragment, useState } from 'react';
-import { Transition, Dialog } from '@headlessui/react';
+var { Transition, Dialog } = require('@headlessui/react');
 import Image from 'next/image';
 import { getImageUrl } from '@/utils';
 
@@ -63,7 +63,7 @@ export function CarDetails({ isOpen, closeModal, car }: CarDetailsProps) {
 											/>
 										</div>
 										<div className='flex gap-4 py-4'>
-										<div className='flex-1 h-24 cursor-pointer w-full relative'>
+											<div className='flex-1 h-24 cursor-pointer w-full relative'>
 												<Image
 													src={getImageUrl(car, '29')}
 													alt='car-image'
@@ -81,7 +81,7 @@ export function CarDetails({ isOpen, closeModal, car }: CarDetailsProps) {
 													className='object-contain'
 												/>
 											</div>
-											
+
 											<div className='flex-1 cursor-pointer h-24 w-full relative'>
 												<Image
 													src={getImageUrl(car, '13')}
