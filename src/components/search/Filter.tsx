@@ -1,6 +1,6 @@
 'use client';
-import { Fragment, useEffect, useState } from 'react';
-import { Listbox, Transition } from '@headlessui/react';
+import { ChangeEvent, Fragment, useEffect, useState } from 'react';
+var { Listbox, Transition } = require('@headlessui/react');
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import { updateUrlParams } from '@/utils';
 import { useRouter } from 'next/navigation';
@@ -60,7 +60,7 @@ function Lists({ value, title, select }: FilterListProps) {
 		<div className='relative w-36'>
 			<Listbox
 				value={selected}
-				onChange={(e) => {
+				onChange={(e: ChangeEvent) => {
 					setSelected(e);
 				}}>
 				<div className='relative mt-1'>
@@ -84,13 +84,13 @@ function Lists({ value, title, select }: FilterListProps) {
 							{value.map((val, valIdx) => (
 								<Listbox.Option
 									key={valIdx}
-									className={({ active }) =>
+									className={({ active }: { active: boolean }) =>
 										`relative cursor-default select-none py-2 pl-10 pr-4 ${
 											active ? 'bg-amber-100 text-amber-900' : 'text-gray-900'
 										}`
 									}
 									value={val}>
-									{({ selected }) => (
+									{({ selected }: { selected: boolean }) => (
 										<>
 											<span
 												className={`block truncate ${
